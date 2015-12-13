@@ -32,7 +32,7 @@
 				href="@{UserContacts.list()}">User Contacts</a></li>
 			 #{/secure.check}
 		</ul>
-		#{doLayout /}
+		
 		
 		
 		<h3>Add User Contact</h3>
@@ -46,15 +46,15 @@
     #{/ifErrors}
  
     <p>
-        <label for="author">Contact Name: </label>
+        <label for="author">*Contact Name: </label>
         <input type="text" name="username" id="username" value="${params.username}" />
     </p>
     <p>
-        <label for="content">Contact Date of Birth (DD-MM-YY): </label>
+        <label for="content">*Contact Date of Birth (DD-MM-YY): </label>
         <input type="text" name="dob" id="dob">${params.dob}</textarea>
     </p>
     <p>
-        <label for="content">Notification Interval : </label>
+        <label for="content">*Notification Interval : </label>
         <input type="text" name="interval" id="interval">${params.interval}</textarea>
     </p>
     <p>
@@ -63,6 +63,9 @@
 	#{/form}
 					
 	</div>
+	 <p class="error">
+            * All fields are required!
+     </p>
 
 </body>
 </html>

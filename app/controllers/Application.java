@@ -27,6 +27,15 @@ public class Application extends Controller {
     
     public static void postUserContact(String interval, String username, String dob) {
     	
+    	if(interval == null || username == null || dob == null ||
+    			interval.isEmpty() || username.isEmpty() || dob.isEmpty()) {
+    		render("admin.html");
+    	}
+    	
+    	if(!checkDate(dob)) {
+    		render("admin.html");
+    	}
+    	
     	String user = Security.connected();
         System.out.println("User :: "+user);
         User owner= User.find("byEmail",user).first();
@@ -56,6 +65,28 @@ public class Application extends Controller {
         UserContact contact=new UserContact(username,dob,finalDay,interval,owner);
         contact.save();
         show(contact.id);
+    }
+    
+    private static boolean checkDate(String dob) {
+    	boolean success = true;
+    	if(dob.length() != 8) {
+    		success = false;
+    	}
+    	
+    	String[] dobsplit = dob.split("-");
+    	if(dobsplit.length != 3) {
+    		success = false;
+    	}
+    	
+    	if(Integer.parseInt(dobsplit[0]) <0 || Integer.parseInt(dobsplit[0])>31 ||
+    			Integer.parseInt(dobsplit[1]) <0 || Integer.parseInt(dobsplit[1]) >12) {
+    		success = false;
+    	}
+    	
+    	// todo: validate for February and other month dates 
+    	// todo: do not allow future dates
+    	
+    	return success;
     }
     
     public static void edit(Long id) {

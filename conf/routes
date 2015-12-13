@@ -1,0 +1,21 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /contact_manager/?                      		   Admin.index
+*       /contact_manager				        		   module:crud			
+GET     /contact_details                        		   Application.index
+POST    /user/{userId}/contact_details                     Application.create
+GET     /user/{userId}/contact_details/{}                  Application.show
+
+#*       /                                      module:secure
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}

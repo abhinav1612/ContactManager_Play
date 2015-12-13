@@ -1,0 +1,31 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<h3>Edit User Contact</h3>
+#{if contact} 
+#{form @Application.updateUserContact()}
+ 
+    #{ifErrors}
+        <p class="error">
+            All fields are required!
+        </p>
+    #{/ifErrors}
+ 
+    <p>
+        <label for="author">Contact Name: </label>
+        <input type="text" name="username" id="username" value="${contact.contact_name}" />
+    </p>
+    <p>
+        <label for="content">Contact Date of Birth : </label>
+        <input type="text" name="dob" id="dob" value="${contact.dob_dd_mm_yy}" />
+    </p>
+    <p>
+        <label for="content">Notification Interval : </label>
+        <input type="text" name="interval" id="interval" value="${contact.notification_interval}" />
+    </p>
+    <input type="hidden" name="contact_id" id="contact_id" value="${contact.id}" />
+    <p>
+        <input type="submit" value="Update Contact" />
+    </p>
+#{/form}
+#{/if}

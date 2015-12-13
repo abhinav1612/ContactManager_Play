@@ -1,0 +1,33 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<a href="@{Admin.index}">Add More Contact > </a>
+#{if contacts}
+<div class="contacts">
+	<div class="contacts">
+		<h3>
+			User Contacts
+		</h3>
+
+		#{list items:contacts, as:'contact'}
+		<div class="post">
+			<div class="contact-metadata">
+				<span class="contact-name"> Name : ${contact.contact_name} </span><br> 
+				<span class="contact_dob"> Date of Birth (DD-MM-YY) : ${contact.dob_dd_mm_yy} </span><br>
+				<span class="contact_notification_interval">Notify Me : ${contact.notification_interval} Hours before Event</span><br>
+				<h5>
+					<div class="selected">
+					<a href="@{Application.edit(contact.id)}">Edit</a>
+					<a href="@{Application.show(contact.id)}">Show</a>
+					<a href="@{Application.delete(contact.id)}">Delete</a>
+					</div>
+				</h5>
+			</div>
+		</div>
+		#{/list}
+	</div>
+</div>
+#{/if} #{else}
+
+<div class="no-contacts">Currently no user contact details is present</div>
+#{/else}

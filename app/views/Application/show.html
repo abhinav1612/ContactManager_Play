@@ -1,0 +1,12 @@
+#{extends 'main.html' /} 
+#{if contact}
+#{set title:contact.contact_name /}
+<div class="contact-details">
+	<span class="contact-name bold">Name : </span><span>${contact.contact_name} </span> <br> 
+	<span class="contact_dob bold">Date of Birth (DD-MM-YY) </span><span>${contact.dob_dd_mm_yy} </span> <br> 
+	<span class="contact_notification_interval bold">Notify me : </span><span>${contact.notification_interval} Hours before Event</span> <br>
+</div>
+<br/>
+<br/>
+<a href="@{Admin.index}">Back</a>
+#{/ if}

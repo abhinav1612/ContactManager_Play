@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Manager</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+#{get 'moreStyles' /}
+<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}" />
+
+<script
+	src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+<!--<script src='../public/javascripts/jquery.tools-1.2.5.toolbox.expose.min.js'></script> -->
+</head>
+<body id="admin">
+
+	<div id="header">
+		<ul id="tools">
+			<li><a href="@{Secure.logout()}">Log out</a></li>
+		</ul>
+	</div>
+
+	<div id="main">
+
+		<ul id="adminMenu">
+			<li class="${request.controller == 'Admin' ? 'selected' : ''}">
+				<a href="@{Application.index()}">My Contacts</a>
+			</li> 
+			 #{secure.check 'admin'}
+			<li class="${request.controller == 'Users' ? 'selected' : ''}">
+				<a href="@{Users.list()}">Users</a>
+			</li>
+			<li class="${request.controller == 'UserContacts' ? 'selected' : ''}"><a
+				href="@{UserContacts.list()}">User Contacts</a></li>
+			 #{/secure.check}
+		</ul>
+		#{doLayout /}
+		
+		
+		<h3>Add User Contact</h3>
+ 
+	#{form @Application.postUserContact()}
+ 
+    #{ifErrors}
+        <p class="error">
+            All fields are required!
+        </p>
+    #{/ifErrors}
+ 
+    <p>
+        <label for="author">Contact Name: </label>
+        <input type="text" name="username" id="username" value="${params.username}" />
+    </p>
+    <p>
+        <label for="content">Contact Date of Birth (DD-MM-YY): </label>
+        <input type="text" name="dob" id="dob">${params.dob}</textarea>
+    </p>
+    <p>
+        <label for="content">Notification Interval : </label>
+        <input type="text" name="interval" id="interval">${params.interval}</textarea>
+    </p>
+    <p>
+        <input type="submit" value="Add Contact" />
+    </p>
+	#{/form}
+					
+	</div>
+
+</body>
+</html>

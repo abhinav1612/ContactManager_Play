@@ -1,5 +1,5 @@
 # ContactManager Play
-This is the repository to with a demo app on PLAY Framework
+This is the repository with a demo app on PLAY Framework
 
 First Work on PLAY Framework (1.2.4)
 
@@ -48,4 +48,3 @@ in DDMMHH format. Example if current Date is 15-Dec-2015 and Job is running at 1
 Note : The current cron job is configured to run at 1hr,For testing purpose, uncomment the @On("0 0/1 * * * ?") so that the job runs at every minute to test the email sending funcationality.
 
 Play has a close analogy to Rails framework and I have tried using my rails knowledge to get an understanding of Play frameowrk and develop this project.
-

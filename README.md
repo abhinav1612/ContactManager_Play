@@ -33,12 +33,18 @@ Edit/Delete User Contact
 
 Logic with storing User Contact Information
 
-1. If User Date of Birth is 16-DEC-1989 and User Notification Time(X) is set as 10 hrs before event, the Event Information will be stored as 151214
+1. If User Date of Birth is 16-DEC-1989 and User Notification Time(X) is set as 10 hrs before event, the Event Information will be stored as 151214(DDMMHH) in User Conatct Table
 where 15 Represents one day before Event that is on 16 and
 12 Represents Month of Event and
 14 Represents Hour of the day when notification is to be sent.(So here X is set as 10, event starts at 16-DEC Midnight so 24 - 10 = 14)
 
-2. A background Asynchronous Cron Job will run at every 1 hr starting from Midnight. Cron Job 
+2. A background Cron Job will run at every 1 hr starting from Midnight. Cron Job will get current date and timestamp, calculate String
+in DDMMHH format. Example if current Date is 15-Dec-2015 and Job is running at 14:00 Hrs then resultant string will "151214". It will then fetch all User Contact records wiht same Event Notification String and pass the List of User Contact to Email Module to send notification mail.
 
 
+
+
+Note : The current cron job is configured to run at 1hr,For testing purpose, uncomment the @On("0 0/1 * * * ?") so that the job runs at every minute to test the email sending funcationality.
+
+Play has a close analogy to Rails framework and I have tried using my rails knowledge to get an understanding of Play frameowrk and develop this project.
 

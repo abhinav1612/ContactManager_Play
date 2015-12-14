@@ -13,22 +13,26 @@ By Default a user will be created with username as "admin@scalegrid.com"  and pa
 As it is a demo application, proper validation and error handling was not done.
 
 Steps to create a New User
+
 1. Start the application 
 2. Navigate to URL http://localhost:9000/contact_manager/users/new, and Login with Username as admin@scalegrid.com and Password as admin.
 3. Fill required details in form and submit the form.
 4. New User can be seen under http://localhost:9000/contact_manager/users/
 
 Add Contacts to User
+
 1. Navigate to URL http://localhost:9000/contact_manager, Login if required with proper credentials.
 2. Fill User Contact form , with required details and submit form.
 3. Added User Contact can be seen under My Contacts.
 
 Edit/Delete User Contact
+
 1. Navigate to URL http://localhost:9000/contact_manager, Login if required with proper credentials.
 2. Navigate to User Contacts through My Contacts Tab.
 3. Select and Modify Require User Contact details from Contact list.
 
 Logic with storing User Contact Information
+
 1. If User Date of Birth is 16-DEC-1989 and User Notification Time(X) is set as 10 hrs before event, the Event Information will be stored as 151214
 where 15 Represents one day before Event that is on 16 and
 12 Represents Month of Event and

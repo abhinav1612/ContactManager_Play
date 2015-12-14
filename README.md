@@ -1,5 +1,6 @@
 # ContactManager Play
-This is the repository to demonstrate PLAY Framework
+This is the repository to with a demo app on PLAY Framework
+
 First Work on PLAY Framework (1.2.4)
 
 Developed a demo multi-user web application that allows the logged in user to create and maintain a list of his contacts.  The app should send an email to the user when there is a contact with an upcoming birthday.  The email should be sent X hours before the birthday where X is configurable by the user.
@@ -8,7 +9,7 @@ Demo will work on Play Framework Version : 1.2.4 and Java Version : 1.7.x
 
 In the Real-time application all System.out.println() statements will be replaced by proper Logger statements.
 
-By Default a user will be created with username as "admin@scalegrid.com"  and password as "admin", when first time appliaction is started.
+By Default a user will be created with username as "admin@scalegrid.com"  and password as "admin", when first time appliaction is started.(as part of Bootstrap Job)
 
 As it is a demo application, proper validation and error handling was not done.
 
